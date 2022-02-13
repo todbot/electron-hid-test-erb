@@ -8,14 +8,18 @@ const devices = HID.devices();
 
 devices.sort((a,b)=> b.vendorId-a.vendorId || b.productId-a.productId )
 
+function decimalToHex(decimal, chars) {
+    return (decimal + Math.pow(16, chars)).toString(16).slice(-chars).toUpperCase();
+}
+
 const Hello = () => {
     var createDeviceLine = function(device,index) {
         return (
             <tr key={index}>
-                <td>{device.vendorId}</td>
-                <td>{device.productId}</td>
-                <td>{device.usagePage}</td>
-                <td>{device.usage}</td>
+                <td>0x{decimalToHex(device.vendorId, 4)}</td>
+                <td>0x{decimalToHex(device.productId, 4)}</td>
+                <td>0x{decimalToHex(device.usagePage, 4)}</td>
+                <td>0x{decimalToHex(device.usage, 4)}</td>
                 <td>{device.manufacturer}</td>
                 <td>{device.product}</td>
                 <td>{device.serialNumber}</td>

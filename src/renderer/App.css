@@ -24,10 +24,12 @@ table, th, td {
   border: 1px solid;
 }
 table {
-overflow-x:auto;
+  table-layout:fixed;
+  overflow-x:auto;
 }
 th,td {
     padding: 5px;
+    white-space:nowrap;
 }
 
 button {
