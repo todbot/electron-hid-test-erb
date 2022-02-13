@@ -21,6 +21,12 @@ jobs:
       - name: Checkout git repo
         uses: actions/checkout@v1
 
+      - name: setup prerequisites (linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt update
+          sudo apt install pkg-config libudev-dev libusb-1.0-0-dev
+
       - name: Install Node and NPM
         uses: actions/setup-node@v1
         with:
