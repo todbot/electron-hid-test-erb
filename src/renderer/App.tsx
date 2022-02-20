@@ -20,8 +20,8 @@ const Hello = () => {
       <tr key={index}>
         <td>0x{decimalToHex(device.vendorId, 4)}</td>
         <td>0x{decimalToHex(device.productId, 4)}</td>
-        <td>0x{decimalToHex(device.usagePage!, 4)}</td>
-        <td>0x{decimalToHex(device.usage!, 4)}</td>
+        <td>0x{decimalToHex(device.usagePage ?? false, 4)}</td>
+        <td>0x{decimalToHex(device.usage ?? false, 4)}</td>
         <td>{device.manufacturer}</td>
         <td>{device.product}</td>
         <td>{device.serialNumber}</td>
@@ -32,12 +32,11 @@ const Hello = () => {
 
   return (
     <div>
-      <h1>Hello from electron-hid-test-erb</h1>
+      <h1>Hello from electron-hid-test-erb!</h1>
 
       <div>
-        We are using NodeJs {process.versions.node},
-        Chrome {process.versions.chrome},
-        and Electron {process.versions.electron}.
+        We are using NodeJs {process.versions.node}, Chrome{' '}
+        {process.versions.chrome}, and Electron {process.versions.electron}.
       </div>
 
       <h2> HID Device List </h2>
@@ -59,9 +58,7 @@ const Hello = () => {
       </table>
 
       <h2> HID Device List (JSON) </h2>
-      <pre>
-      {JSON.stringify(HID.devices(), null, '  ')}
-      </pre>
+      <pre>{JSON.stringify(HID.devices(), null, '  ')}</pre>
     </div>
   );
 };
