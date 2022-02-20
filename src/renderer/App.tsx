@@ -20,8 +20,8 @@ const Hello = () => {
       <tr key={index}>
         <td>0x{decimalToHex(device.vendorId, 4)}</td>
         <td>0x{decimalToHex(device.productId, 4)}</td>
-        <td>0x{decimalToHex(device.usagePage ?? false, 4)}</td>
-        <td>0x{decimalToHex(device.usage ?? false, 4)}</td>
+        <td>0x{decimalToHex(device.usagePage ?? 0, 4)}</td>
+        <td>0x{decimalToHex(device.usage ?? 0, 4)}</td>
         <td>{device.manufacturer}</td>
         <td>{device.product}</td>
         <td>{device.serialNumber}</td>
